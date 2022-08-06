@@ -38,7 +38,13 @@ class S3BucketConnector():
         returns:
           files: list of all the file names containing the prefix in the key
         """
+        print('inside list_files_in_prefix')
+        print(prefix)
+        print(self._bucket.objects)
+        print('here 456')
         files = [obj.key for obj in self._bucket.objects.filter(Prefix=prefix)]
+        print('pppppppppr')
+        print(files)
         return files
 
     def read_csv_to_df(self, key: str, encoding: str = 'utf-8', sep: str = ','):
